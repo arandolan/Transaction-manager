@@ -1,6 +1,17 @@
-import { createClient } from "@/utils/supabase/client";
+import { createClient } from "@supabase/supabase-js";
 
-const supabase = createClient();
+interface Transaction {
+  id: string;
+  title: string;
+  description: string;
+  date: Date;
+  amount: string;
+}
+
+const supabase = createClient(
+  "https://npewwvqsrtjptihtemix.supabase.co",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5wZXd3dnFzcnRqcHRpaHRlbWl4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTEwMjU4NzAsImV4cCI6MjAyNjYwMTg3MH0.stRWT2sVGNjncydJ4o_9Eu5TjyhKXsvRgAWtWT1yiCk"
+);
 
 export const updateTransaction = async (
   id: string,
