@@ -8,15 +8,17 @@ interface Transaction {
   amount: string;
 }
 
+// connect to database
 const supabase = createClient(
   "https://npewwvqsrtjptihtemix.supabase.co",
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5wZXd3dnFzcnRqcHRpaHRlbWl4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTEwMjU4NzAsImV4cCI6MjAyNjYwMTg3MH0.stRWT2sVGNjncydJ4o_9Eu5TjyhKXsvRgAWtWT1yiCk"
 );
 
+// amend a value in the Transactions database table
 export const updateTransaction = async (
   id: string,
   colName: string,
-  newValue: string | number
+  newValue: string | number // input by user
 ) => {
   "use server";
 
@@ -26,6 +28,7 @@ export const updateTransaction = async (
     .eq("id", id);
 };
 
+// insert a row in Transactions table
 export const addTransaction = async (newTitle: string) => {
   "use server";
 
@@ -34,6 +37,7 @@ export const addTransaction = async (newTitle: string) => {
     .insert({ id: crypto.randomUUID(), title: newTitle, date: new Date() });
 };
 
+// remove a row from Transactions
 export const deleteTransaction = async (id: string) => {
   "use server";
 
@@ -44,6 +48,7 @@ export const deleteTransaction = async (id: string) => {
   }
 };
 
+// retrieve a transaction from the database
 export const getTransaction = async (id: string) => {
   "use server";
 
@@ -55,6 +60,7 @@ export const getTransaction = async (id: string) => {
   return details;
 };
 
+// retrieve all transactions
 export const getTransactions = async () => {
   "use server";
 

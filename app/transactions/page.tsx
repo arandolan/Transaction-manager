@@ -12,16 +12,16 @@ interface Transaction {
   title: string;
 }
 
+// List all transactions in the database
 export default async function ListTransactions() {
   const transactions = await getTransactions();
 
   if (transactions === null) return <h1>Call Failed</h1>;
 
-  const route = "/transactions/details/";
-
-  const total = 0;
+  //Calculate total amount (sum amount across all transactions)
+  let sum = 0;
   const amounts = transactions.map((t) => t.amount);
-  const sum = amounts.reduce((a, b) => a + b, 0);
+  sum = amounts.reduce((a, b) => a + b, 0);
 
   return (
     <pre>
@@ -47,7 +47,6 @@ export default async function ListTransactions() {
           </li>
         ))}
       </ul>
-
       <AddButton
         addTransaction={async (newTitle: string) => {
           "use server";

@@ -1,6 +1,7 @@
+// Event listener needs to be client-side
 "use client";
 
-import { useState } from "react";
+import { useState } from "react"; // control field state
 
 export const SaveButton = ({
   updateTransaction,
@@ -11,6 +12,7 @@ export const SaveButton = ({
 }) => {
   const [value, setValue] = useState(currentValue ?? "");
 
+  // user can edit and save each field separately
   return (
     <>
       <input
