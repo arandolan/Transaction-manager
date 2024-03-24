@@ -2,6 +2,7 @@ import { updateTransaction } from "@/app/api/Transactions";
 import { SaveButton } from "@/components/SaveButton";
 import { createClient } from "@/utils/supabase/server";
 
+// retrieve a transaction
 async function getDetails(id: string) {
   "use server";
 
@@ -15,6 +16,7 @@ async function getDetails(id: string) {
   return details;
 }
 
+// amend an attribute of a transaction
 async function editAttribute(id: number, newTitle: string) {
   "use server";
 
@@ -27,6 +29,7 @@ interface TxDetailsProps {
   params: { id: string };
 }
 
+// Provide mutable fields for user to amend transaction attributes
 export default async function TransactionDetails({ params }: TxDetailsProps) {
   console.log("id: ", params.id);
   const transactionDetails = await getDetails(params.id);

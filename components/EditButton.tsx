@@ -1,6 +1,7 @@
+// Event listener is client-side
 "use client";
 
-import { useState } from "react";
+import { useState } from "react"; //control state of the field value
 
 export default function EditField({
   editAttribute,
@@ -13,6 +14,7 @@ export default function EditField({
 }) {
   const [title, setTitle] = useState("");
 
+  // user input field
   return (
     <>
       <input

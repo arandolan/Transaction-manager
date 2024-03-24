@@ -1,6 +1,7 @@
+// onClick event executes on the client side
 "use client";
 
-import { useState } from "react";
+import { useState } from "react"; //control state of title field
 
 export default function AddButton({
   addTransaction,
@@ -9,6 +10,7 @@ export default function AddButton({
 }) {
   const [title, setTitle] = useState("");
 
+  // user input field to set title of new transaction
   return (
     <>
       <input

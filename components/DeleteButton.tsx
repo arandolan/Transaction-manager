@@ -1,9 +1,11 @@
+// Event listener is client-side
 "use client";
 
 interface DeleteButtonProps {
   deleteTransaction: () => void;
 }
 
+// Delete the transaction from the database
 export const DeleteButton = ({ deleteTransaction }: DeleteButtonProps) => {
   return (
     <button
