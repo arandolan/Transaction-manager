@@ -16,15 +16,6 @@ async function getDetails(id: string) {
   return details;
 }
 
-// amend an attribute of a transaction
-async function editAttribute(id: number, newTitle: string) {
-  "use server";
-
-  const supabase = createClient();
-
-  await supabase.from("Transactions").update({ title: newTitle }).eq("id", id);
-}
-
 interface TxDetailsProps {
   params: { id: string };
 }
