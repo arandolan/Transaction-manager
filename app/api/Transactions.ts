@@ -1,5 +1,13 @@
 import { createClient } from "@/utils/supabase/client";
 
+interface Transaction {
+  id: string;
+  title: string;
+  description: string;
+  date: Date;
+  amount: string;
+}
+
 const supabase = createClient();
 
 export const updateTransaction = async (
